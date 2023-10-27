@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addBook } from "../../redux/slices/booksSlice";
+import { addBook, fetchBook } from "../../redux/slices/booksSlice";
 import booksData from "../../data/books.json";
 import "./BookForm.css";
 import createBookWithId from "../../utils/createBookWithId";
@@ -14,18 +14,21 @@ const BookForm = () => {
     const randomIndex = Math.floor(Math.random() * booksData.length);
     const randomBook = booksData[randomIndex];
 
-    dispatch(addBook(createBookWithId(randomBook)));
+    dispatch(addBook(createBookWithId(randomBook, "random")));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (title && author) {
-      dispatch(addBook(createBookWithId({ title, author })));
+      dispatch(addBook(createBookWithId({ title, author }, "manual")));
       setTitle("");
       setAuthor("");
     }
   };
 
+  const handleAddRandomBookViaAPI = () => {
+    dispatch(fetchBook());
+  };
   return (
     <div className="app-block book-form">
       <h2>Add a New Book</h2>
@@ -51,6 +54,9 @@ const BookForm = () => {
         <button type="submit">Add Book</button>
         <button type="button" onClick={handleAddRandomBook}>
           Add Random
+        </button>
+        <button onClick={handleAddRandomBookViaAPI} type="button">
+          Add Random via API
         </button>
       </form>
     </div>
