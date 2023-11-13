@@ -22,7 +22,7 @@ const BookForm = () => {
 
     dispatch(addBook(createBookWithId(randomBook, "random")));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (title && author) {

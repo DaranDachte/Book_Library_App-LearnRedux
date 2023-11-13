@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface RootState {
+  filter: {
+    title: string;
+    author: string;
+    onlyFavorite: boolean;
+  };
+}
 const initialState = {
   title: "",
   author: "",
@@ -34,9 +41,10 @@ export const {
   setOnlyFavoriteFilter,
   resetFilters,
 } = filterSlice.actions;
-export const selectTitleFilter = (state) => state.filter.title;
-export const selectAuthorFilter = (state) => state.filter.author;
-export const selectOnlyFavoriteFilter = (state) => state.filter.onlyFavorite;
+export const selectTitleFilter = (state: RootState) => state.filter.title;
+export const selectAuthorFilter = (state: RootState) => state.filter.author;
+export const selectOnlyFavoriteFilter = (state: RootState) =>
+  state.filter.onlyFavorite;
 
 //один селектор для всего
 // export const selectFilters =(state)=> state.filters

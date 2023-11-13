@@ -1,8 +1,16 @@
 import * as a from "./actionTypes";
+import Book from "../store";
+import { BookActionTypes } from "./actionCreators";
 
-const initialState = [];
+interface Book {
+  id: string;
+  title: string;
+  author: string;
+  isFavorite: boolean;
+}
+const initialState: Book[] = [];
 
-const booksReducer = (state = initialState, action) => {
+const booksReducer = (state = initialState, action: BookActionTypes) => {
   switch (action.type) {
     case a.ADD_BOOK:
       return [...state, action.payload];
