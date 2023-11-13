@@ -1,6 +1,6 @@
-const express = require("express");
-const cors = require("cors");
-const booksData = require("./data/books.json");
+import express from "express";
+import cors from "cors";
+import booksData from "./data/books.json";
 
 const app = express();
 app.use(cors());
