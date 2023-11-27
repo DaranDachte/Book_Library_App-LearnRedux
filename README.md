@@ -1,4 +1,4 @@
-# Book_Library_App-LearnRedux
+# Book_Library_App-LearnRedux 
 This project is about learning the Redux state manager, and is taken from a course that was created by Bogdan Stashchuk.
 ![Certificate](https://github.com/DaranDachte/Book_Library_App-LearnRedux/assets/96144068/f3cab4e7-1d21-40dc-811e-b5c2f706570f)
 
